@@ -36,7 +36,7 @@ fn main() {
     };
 
     // Read input files:
-    let html = read_source(str_arg("h", "examples/test.html"));
+    let html = read_source(str_arg("h", "examples/testbig.html"));
     let css  = read_source(str_arg("c", "examples/test.css"));
 
     // Since we don't have an actual window, hard-code the "viewport" size.
