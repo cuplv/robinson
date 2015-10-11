@@ -42,7 +42,7 @@ fn main() {
     // Since we don't have an actual window, hard-code the "viewport" size.
     let mut viewport: layout::Dimensions = Default::default();
     viewport.content.width  = 800.0;
-    viewport.content.height = 6000.0;
+    viewport.content.height = 60000.0;
 
     // Parsing and rendering:
 
@@ -84,6 +84,9 @@ fn main() {
     println!("style:  {} sec", parse2_time.to(style_time));
     println!("layout: {} sec", style_time.to(layout_time));
     println!("output: {} sec", layout_time.to(output_time));
+    println!("------------------");
+    println!("total:  {} sec", start.to(output_time));
+
 }
 
 fn read_source(filename: String) -> String {

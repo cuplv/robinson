@@ -18,8 +18,20 @@ head {
   display: none;
 }
 
+.outer#special {
+  width: 100px;
+  height: 100px;
+  background: #ccccff;
+  border-width: 2px;  
+  border-color: #666666;
+}
+
+.inner#specialbye {
+  background: #ff3300;
+}
+
 .outer {
-  background: #00ccff;
+  background: #00aaff;
   border-color: #666666;
   border-width: 2px;
   margin: 5px;
@@ -29,13 +41,13 @@ head {
 .inner {
   border-color: #cc0000;
   border-width: 4px;
-  height: 4px;
+  height: 14px;
   margin-bottom: 5px;
   width: 5px;
 }
 
 .inner#bye {
-  background: #ffff00;
+  background: #ff3300;
 }
 
 span#name {
