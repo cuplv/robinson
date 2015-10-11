@@ -22,16 +22,16 @@ head {
   background: #00ccff;
   border-color: #666666;
   border-width: 2px;
-  margin: 50px;
-  padding: 50px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .inner {
   border-color: #cc0000;
   border-width: 4px;
-  height: 100px;
-  margin-bottom: 20px;
-  width: 500px;
+  height: 4px;
+  margin-bottom: 5px;
+  width: 5px;
 }
 
 .inner#bye {

@@ -1,6 +1,8 @@
 extern crate getopts;
 extern crate image;
+extern crate time;
 
+use time::PreciseTime;
 use std::default::Default;
 use std::io::Read;
 use std::fs::File;
@@ -40,13 +42,19 @@ fn main() {
     // Since we don't have an actual window, hard-code the "viewport" size.
     let mut viewport: layout::Dimensions = Default::default();
     viewport.content.width  = 800.0;
-    viewport.content.height = 600.0;
+    viewport.content.height = 6000.0;
 
     // Parsing and rendering:
+
+    let start = PreciseTime::now();        
     let root_node = html::parse(html);
+    let parse1_time = PreciseTime::now();        
     let stylesheet = css::parse(css);
+    let parse2_time = PreciseTime::now();        
     let style_root = style::style_tree(&root_node, &stylesheet);
+    let style_time = PreciseTime::now();        
     let layout_root = layout::layout_tree(&style_root, viewport);
+    let layout_time = PreciseTime::now();        
 
     // Create the output file:
     let filename = str_arg("o", if png { "output.png" } else { "output.pdf" });
@@ -69,6 +77,13 @@ fn main() {
     } else {
         println!("Error saving output as {}", filename)
     }
+    let output_time = PreciseTime::now();
+
+    println!("parse1: {} sec", start.to(parse1_time));
+    println!("parse2: {} sec", parse1_time.to(parse2_time));
+    println!("style:  {} sec", parse2_time.to(style_time));
+    println!("layout: {} sec", style_time.to(layout_time));
+    println!("output: {} sec", layout_time.to(output_time));
 }
 
 fn read_source(filename: String) -> String {
